@@ -146,6 +146,8 @@
     <Compile Include="ChatFilter.cs" />
     <Compile Include="Client\FPSManager.cs" />
     <Compile Include="Client\WindowPosition.cs" />
+    <Compile Include="Custom\CustomSpellTable.cs" />
+    <Compile Include="ItemInfo\SpellStub.cs" />
     <Compile Include="Loggers\Chat\BufferedChatLogFileWriter.cs" />
     <Compile Include="Loggers\Chat\ChatLogger.cs" />
     <Compile Include="Loggers\Chat\ChatLogImporter.cs" />

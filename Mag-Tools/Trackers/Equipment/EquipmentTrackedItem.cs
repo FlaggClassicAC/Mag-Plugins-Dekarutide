@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Mag.Shared;
@@ -6,6 +6,7 @@ using Mag.Shared;
 using Decal.Adapter;
 using Decal.Adapter.Wrappers;
 using Decal.Filters;
+using MagTools.ItemInfo;
 
 namespace MagTools.Trackers.Equipment
 {
@@ -219,10 +220,12 @@ namespace MagTools.Trackers.Equipment
 				if (wo.Exists(LongValueKey.AssociatedSpell) && (wo.Values(LongValueKey.AssociatedSpell) == spellOnItemId))
 					continue;
 
-				Spell spellOnItem = service.SpellTable.GetById(spellOnItemId);
+				SpellStub? spellOnItem = ((PluginCore)PluginCore.Current).CustomSpellTable.GetById(spellOnItemId);
+				if (!spellOnItem.HasValue)
+					continue;
 
 				// If it is offensive, it is probably a cast on strike spell
-				if (spellOnItem.IsDebuff || spellOnItem.IsOffensive)
+				if (spellOnItem.Value.IsDebuff || spellOnItem.Value.IsOffensive)
 					continue;
 
 
@@ -234,8 +237,10 @@ namespace MagTools.Trackers.Equipment
 				for (int j = 0 ; j < wo.ActiveSpellCount ; j++)
 				{
 					int activeSpellOnItemId = wo.ActiveSpell(j);
-
-					if ((service.SpellTable.GetById(activeSpellOnItemId).Family == spellOnItem.Family) && (service.SpellTable.GetById(activeSpellOnItemId).Difficulty >= spellOnItem.Difficulty))
+					var spell2 = ((PluginCore)PluginCore.Current).CustomSpellTable.GetById(activeSpellOnItemId);
+					if (!spell2.HasValue)
+						continue;
+					if ((spell2.Value.Family == spellOnItem.Value.Family) && (spell2.Value.Difficulty >= spellOnItem.Value.Difficulty))
 					{
 						thisSpellIsActive = true;
 						break;
@@ -249,7 +254,8 @@ namespace MagTools.Trackers.Equipment
 				// Check to see if this item cast any spells on the player.
 				foreach (int j in activeSpellsOnChar)
 				{
-					if (service.SpellTable.GetById(j) != null && (service.SpellTable.GetById(j).Family == spellOnItem.Family) && (service.SpellTable.GetById(j).Difficulty >= spellOnItem.Difficulty))
+					var spell3 = ((PluginCore)PluginCore.Current).CustomSpellTable.GetById(j);
+					if (spell3 != null && (spell3.Value.Family == spellOnItem.Value.Family) && (spell3.Value.Difficulty >= spellOnItem.Value.Difficulty))
 					{
 						thisSpellIsActive = true;
 						break;

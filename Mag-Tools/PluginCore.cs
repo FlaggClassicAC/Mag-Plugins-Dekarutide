@@ -16,6 +16,8 @@ using Mag.Shared;
 using Decal.Adapter;
 using Decal.Adapter.Wrappers;
 using Decal.Filters;
+using MagTools.Custom;
+using MagTools.ItemInfo;
 
 /*
  * Created by Mag-nus. 8/19/2011
@@ -142,6 +144,8 @@ namespace MagTools
 		Looter looter;
 		public ILooter Looter { get { return looter; } }
 
+		// CustomDAT Extensions
+		public CustomSpellTable CustomSpellTable { get; } = new CustomSpellTable();
 
 		// Views, depends on VirindiViewService.dll
 		MainView mainView;
@@ -875,15 +879,16 @@ namespace MagTools
 
 				if (spellId == 0)
 				{
-					FileService service = CoreManager.Current.Filter<FileService>();
-
-					for (int i = 0; i < service.SpellTable.Length; i++)
+					for (int i = 0; i < CustomSpellTable.Length; i++)
 					{
-						Spell spell = service.SpellTable[i];
+						SpellStub? spell = CustomSpellTable[i];
+						if (!spell.HasValue)
+							continue;
 
-						if (String.Equals(spellName, spell.Name, StringComparison.OrdinalIgnoreCase) || (partialMatch && spell.Name.ToLower().Contains(spellName.ToLower())))
+
+						if (String.Equals(spellName, spell.Value.Name, StringComparison.OrdinalIgnoreCase) || (partialMatch && spell.Value.Name.ToLower().Contains(spellName.ToLower())))
 						{
-							spellId = spell.Id;
+							spellId = spell.Value.ID;
 							break;
 						}
 					}
