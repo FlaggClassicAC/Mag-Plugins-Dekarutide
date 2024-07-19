@@ -159,8 +159,12 @@ namespace MagTools.ItemInfo
 					var spellStub = ((PluginCore)PluginCore.Current).CustomSpellTable.GetById(spell);
 					if (!spellStub.HasValue)
 						continue;
+
 					if (!spellStub.Value.ShowInfo)
 						continue;
+
+					ShowSpell:
+
 					sb.Append(", " + spellStub.Value.Name);
 				}
 			}

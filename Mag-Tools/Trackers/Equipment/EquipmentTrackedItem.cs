@@ -237,6 +237,7 @@ namespace MagTools.Trackers.Equipment
 				for (int j = 0 ; j < wo.ActiveSpellCount ; j++)
 				{
 					int activeSpellOnItemId = wo.ActiveSpell(j);
+
 					var spell2 = ((PluginCore)PluginCore.Current).CustomSpellTable.GetById(activeSpellOnItemId);
 					if (!spell2.HasValue)
 						continue;

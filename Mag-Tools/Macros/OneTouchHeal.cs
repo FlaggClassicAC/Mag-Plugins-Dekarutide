@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 using Decal.Adapter;
 using Decal.Adapter.Wrappers;
@@ -84,7 +84,7 @@ namespace MagTools.Macros
 			{
 				if (obj.ObjectClass == ObjectClass.Food)
 				{
-					if (obj.Name.Contains("Heal"))
+					if (obj.Name.Contains("Heal") || obj.Name.Contains("Meat"))
 						return true;
 				}
 			}
@@ -98,7 +98,7 @@ namespace MagTools.Macros
 			{
 				if (obj.ObjectClass == ObjectClass.Food)
 				{
-					if (obj.Name.Contains("Heal"))
+					if (obj.Name.Contains("Heal") || obj.Name.Contains("Meat"))
 					{
 						CoreManager.Current.Actions.UseItem(obj.Id, 0);
 						return true;

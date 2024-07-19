@@ -54,7 +54,35 @@ namespace MagTools.Custom
 6365,Minor Armor Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
 6366,Major Armor Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
 6367,Epic Armor Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
-6367,Legendary Armor Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1".Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+6368,Legendary Armor Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
+6369,Awareness Mastery Self I,Increases the caster's Awareness skill by 10 points.,1,1800,734,15,Creature Enchantment,0.01,18,16,0,0,1
+6370,Awareness Mastery Self II,Increases the caster's Awareness skill by 15 points.,50,1800,734,30,Creature Enchantment,0.05,18,16,0,0,1
+6371,Awareness Mastery Self III,Increases the caster's Awareness skill by 20 points.,100,1800,734,40,Creature Enchantment,0.1,18,16,0,0,1
+6372,Awareness Mastery Self IV,Increases the caster's Awareness skill by 25 points.,150,1800,734,50,Creature Enchantment,0.15,18,16,0,0,1
+6373,Awareness Mastery Self V,Increases the caster's Awareness skill by 30 points.,200,1800,734,60,Creature Enchantment,0.2,18,16,0,0,1
+6374,Awareness Mastery Self VI,Increases the caster's Awareness skill by 35 points.,250,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6375,Awareness Mastery Self VII,Increases the caster's Awareness skill by 40 points.,300,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6376,Incantation of Awareness Mastery Self,Increases the caster's Awareness skill by 45 points.,400,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6377,Awareness Mastery Other I,Increases the target's Awareness skill by 10 points.,1,1800,734,15,Creature Enchantment,0.01,18,16,0,0,1
+6378,Awareness Mastery Other II,Increases the target's Awareness skill by 15 points.,50,1800,734,30,Creature Enchantment,0.05,18,16,0,0,1
+6379,Awareness Mastery Other III,Increases the target's Awareness skill by 20 points.,100,1800,734,40,Creature Enchantment,0.1,18,16,0,0,1
+6380,Awareness Mastery Other IV,Increases the target's Awareness skill by 25 points.,150,1800,734,50,Creature Enchantment,0.15,18,16,0,0,1
+6381,Awareness Mastery Other V,Increases the target's Awareness skill by 30 points.,200,1800,734,60,Creature Enchantment,0.2,18,16,0,0,1
+6382,Awareness Mastery Other VI,Increases the target's Awareness skill by 35 points.,250,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6383,Awareness Mastery Other VII,Increases the target's Awareness skill by 40 points.,300,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6384,Incantation of Awareness Mastery Other,Increases the target's Awareness skill by 45 points.,300,2700,734,70,Creature Enchantment,0.3,18,16,0,0,1
+6385,Awareness Ineptitude Other I,Decreases the target's Awareness skill by 10 points.,1,60,735,10,Creature Enchantment,0.01,27,16,0,1,1
+6386,Awareness Ineptitude Other II,Decreases the target's Awareness skill by 15 points.,75,90,735,20,Creature Enchantment,0.05,27,16,5,0.85,1
+6387,Awareness Ineptitude Other III,Decreases the target's Awareness skill by 20 points.,125,120,735,30,Creature Enchantment,0.1,27,16,5,0.7,1
+6388,Awareness Ineptitude Other IV,Decreases the target's Awareness skill by 25 points.,175,150,735,40,Creature Enchantment,0.15,27,16,5,0.55,1
+6389,Awareness Ineptitude Other V,Decreases the target's Awareness skill by 30 points.,225,180,735,50,Creature Enchantment,0.2,27,16,5,0.4,1
+6390,Awareness Ineptitude Other VI,Decreases the target's Awareness skill by 35 points.,275,210,735,60,Creature Enchantment,0.3,27,16,5,0.25,1
+6391,Awareness Ineptitude Other VII,Decreases the target's Awareness skill by 40 points.,325,210,735,60,Creature Enchantment,0.3,27,16,5,0.25,1
+6392,Incantation of Awareness Ineptitude Other,Decreases the target's Awareness skill by 45 points.,425,210,735,60,Creature Enchantment,0.3,27,16,5,0.25,1
+6393,Minor Awareness Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
+6394,Major Awareness Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
+6395,Epic Awareness Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1
+6396,Legendary Awareness Aptitude,,275,210,52,60,Creature Enchantment,0.3,27,736,5,0.25,1".Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 			var fields = customcsv[0].Split(',');
 			var list = new Dictionary<int, SpellStub>();
 			for (int i = 1; i < customcsv.Length; i++)
