@@ -879,12 +879,13 @@ namespace MagTools
 
 				if (spellId == 0)
 				{
+					FileService service = CoreManager.Current.Filter<FileService>();
+
 					for (int i = 0; i < CustomSpellTable.Length; i++)
 					{
 						SpellStub? spell = CustomSpellTable[i];
 						if (!spell.HasValue)
 							continue;
-
 
 						if (String.Equals(spellName, spell.Value.Name, StringComparison.OrdinalIgnoreCase) || (partialMatch && spell.Value.Name.ToLower().Contains(spellName.ToLower())))
 						{
